@@ -22,7 +22,7 @@ public class User implements Serializable {
     private int age;
     private GenderEnum gender;
     private String phoneNumber;
-    private Address homeAddress;
+    //private Address homeAddress;
     private DigitalWallet digitalWallet;
 
     private Set<Item> saleItemsCollection;
@@ -48,7 +48,7 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = true)
     public String getEmail() {
         return email;
     }
@@ -57,13 +57,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @Column(length = 30, nullable = false)
+    @Column(length = 30, nullable = true)
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-
         this.password = password;
     }
 
@@ -104,14 +103,14 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    @Embedded
+/*    @Embedded
     public Address getHomeAddress() {
         return homeAddress;
     }
 
     public void setHomeAddress(Address homeAddress) {
         this.homeAddress = homeAddress;
-    }
+    }*/
 
     public int getAge() {
         return age;
@@ -157,8 +156,35 @@ public class User implements Serializable {
         this.boughtItemsCollection = boughtItemsCollection;
     }
 
+    public void addBidMadeOnItem(Bid bid){
+        this.bidsMadeCollection.add(bid);
+    }
+
+    public void addItemForSale(Item item){
+        this.saleItemsCollection.add(item);
+    }
+
+    public void addBoughtItem(Item item){
+        this.boughtItemsCollection.add(item);
+    }
+
     public BigDecimal calculateShippingCosts(Address fromLocation){
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", digitalWallet=" + digitalWallet +
+                '}';
+    }
 }

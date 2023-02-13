@@ -16,7 +16,7 @@ public class Address {
         this.city = city;
     }
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     public String getStreet() {
         return street;
     }
@@ -25,7 +25,7 @@ public class Address {
         this.street = street;
     }
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     public City getCity() {
         return city;
     }

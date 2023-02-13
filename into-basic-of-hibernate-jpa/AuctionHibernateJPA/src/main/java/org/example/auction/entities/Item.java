@@ -138,9 +138,6 @@ public class Item {
         if(currentBid == null){
             throw new NullPointerException("Can't add bid, that is null! Enter a valid bid." );
         }
-        if(currentBid.isCurrentBidSetOnAnItem()){
-            throw new IllegalStateException("Bid is already assigned to an Item");
-        }
 
         this.itemBidsMadeCollection.add(currentBid);
         currentBid.setItem(this);

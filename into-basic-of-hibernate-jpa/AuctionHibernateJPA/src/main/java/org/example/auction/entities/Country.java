@@ -18,7 +18,7 @@ public class Country {
         this.name = name;
     }
 
-    @Column(nullable = false, unique = true, length = 3)
+    @Column(nullable = true, unique = true, length = 3)
     public String getCode() {
         return code;
     }

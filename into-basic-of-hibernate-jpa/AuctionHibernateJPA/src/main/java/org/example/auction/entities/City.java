@@ -20,7 +20,7 @@ public class City {
         this.name = name;
     }
 
-    @Column(nullable = false,  unique = true, length = 4)
+    @Column(nullable = true,  unique = true, length = 4)
     public String getZipCode() {
         return zipCode;
     }
